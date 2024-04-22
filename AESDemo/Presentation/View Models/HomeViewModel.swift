@@ -38,7 +38,7 @@ class HomeViewModel : ObservableObject {
         }
     }
     
-    func decryptMessage() {
+    private func decryptMessage() {
         guard let _encryptedMessageData = encryptedMessageData else {
             errorMessage = "Encrypted message data is nil."
             return
@@ -54,6 +54,7 @@ class HomeViewModel : ObservableObject {
         }
     }
     
+    /// Toggles between showing the message as plain text or as encrypted data.
     func toggle(){
         if (isPlaneTextVisible) {
             toggleButtonText = "Decrypt message"

@@ -17,7 +17,7 @@ struct ReceiverView: View {
                 .fontWeight(.bold)
         }
         .frame(maxWidth: .infinity)
-        .padding(0)
+        .padding(10)
         
         // Bottom Half
         VStack {

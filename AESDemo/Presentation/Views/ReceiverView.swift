@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct ReceiverView: View {
-    var buttonTapAction: (() -> Void)?
-    var viewModel: HomeViewModel
+    @ObservedObject var viewModel: HomeViewModel
     
     var body: some View {
         HStack {
@@ -37,7 +36,7 @@ struct ReceiverView: View {
                         HStack(spacing: 10) {
                             AvatarView(imageName: "alice")
                             
-                            SpeechBubbleView(text: viewModel.decryptedMessage, isOutgoing: false, buttonTapAction: buttonTapAction, buttonText: viewModel.toggleButtonText)
+                            SpeechBubbleView(text: viewModel.decryptedMessage, isOutgoing: false, buttonTapAction: handlebuttonTapAction, buttonText: viewModel.toggleButtonText)
                             Spacer()
                         }
                         .transition(.opacity)
@@ -47,7 +46,7 @@ struct ReceiverView: View {
                         HStack(spacing: 10) {
                             AvatarView(imageName: "alice")
                             
-                            SpeechBubbleView(text: viewModel.encryptedMessage, isOutgoing: false, buttonTapAction: buttonTapAction, buttonText: viewModel.toggleButtonText)
+                            SpeechBubbleView(text: viewModel.encryptedMessage, isOutgoing: false, buttonTapAction: handlebuttonTapAction, buttonText: viewModel.toggleButtonText)
                             Spacer()
                         }
                         .transition(.opacity)
@@ -59,6 +58,12 @@ struct ReceiverView: View {
         }
         .frame(maxHeight: .infinity)
         .background(Color.init(hex: "#FFFFFF"))
+    }
+    
+    private func handlebuttonTapAction() {
+        withAnimation {
+            viewModel.toggle()
+        }
     }
 }
 

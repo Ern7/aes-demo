@@ -28,18 +28,13 @@ struct HomeView: View {
                 Divider()
                     .background(Color.init(hex: "#999999"))
                 
-                ReceiverView(buttonTapAction: handlebuttonTapAction, viewModel: viewModel)
+                ReceiverView(viewModel: viewModel)
             }
             .background(Color.init(hex: "#F6F6F6"))
             .navigationBarTitle("Bob", displayMode: .inline)
         }
     }
     
-    private func handlebuttonTapAction() {
-        withAnimation {
-            viewModel.toggle()
-        }
-    }
 }
 
 #Preview {

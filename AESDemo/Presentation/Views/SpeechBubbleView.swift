@@ -12,9 +12,9 @@ struct SpeechBubbleView: View {
     var isOutgoing: Bool
     var buttonTapAction: (() -> Void)?
     var buttonText: String = ""
-    
+
     @State private var incomingTextWidth: CGFloat = 0
-    
+
     var body: some View {
         Group {
             if isOutgoing {
@@ -24,7 +24,7 @@ struct SpeechBubbleView: View {
             }
         }
     }
-    
+
     var incomingBubble: some View {
         VStack(alignment: .leading, spacing: 3) {
             Text(text)
@@ -32,11 +32,11 @@ struct SpeechBubbleView: View {
                 .foregroundColor(Color.init(hex: "#2D2D2D"))
                 .background(Color.init(hex: "#EEEEEE"))
                 .clipShape(ChatBubbleShape(isOutgoing: false))
-            
-            if let _buttonTapAction = buttonTapAction {
+
+            if let custombuttonTapAction = buttonTapAction {
                 HStack(alignment: .center) {
                     Spacer()
-                    Button(action: _buttonTapAction) {
+                    Button(action: custombuttonTapAction) {
                         Text(buttonText)
                     }
                     .frame(height: 20)
@@ -55,7 +55,7 @@ struct SpeechBubbleView: View {
             }
         })
     }
-    
+
     var outgoingBubble: some View {
         VStack(alignment: .trailing, spacing: 8) {
             Text(text)
@@ -66,7 +66,6 @@ struct SpeechBubbleView: View {
         }
     }
 }
-
 
 #Preview {
     SpeechBubbleView(text: "Hey Jane, whats up!", isOutgoing: true, buttonText: "Decrypt text")

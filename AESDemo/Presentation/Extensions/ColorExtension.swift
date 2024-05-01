@@ -31,13 +31,13 @@ extension UIColor {
     /// Convert hex string to Color
     /// - Parameter hex: Hex color code as a string
     convenience init(hex: String) {
-        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+        var cString: String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
 
-        if (cString.hasPrefix("#")) {
+        if cString.hasPrefix("#") {
             cString.remove(at: cString.startIndex)
         }
 
-        if ((cString.count) != 6) {
+        if (cString.count) != 6 {
             self.init(
                 red: CGFloat(200) / 255.0,
                 green: CGFloat(200) / 255.0,
@@ -46,7 +46,7 @@ extension UIColor {
             )
         }
 
-        var rgbValue:UInt64 = 0
+        var rgbValue: UInt64 = 0
         Scanner(string: cString).scanHexInt64(&rgbValue)
 
         self.init(
@@ -57,4 +57,3 @@ extension UIColor {
         )
     }
 }
-

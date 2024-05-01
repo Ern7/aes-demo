@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AvatarView: View {
     var imageName: String
-    
+
     var body: some View {
         Image(imageName)
             .resizable()

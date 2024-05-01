@@ -9,9 +9,9 @@ import Foundation
 import AVFoundation
 
 struct ChatPlayer {
-    
+
     private var audioPlayer: AVAudioPlayer?
-    
+
     init(audioFile: String) {
         if let soundURL = Bundle.main.url(forResource: audioFile, withExtension: "mp3") {
             do {
@@ -26,11 +26,11 @@ struct ChatPlayer {
             print("Audio file not found")
         }
     }
-    
-    func play(){
+
+    func play() {
         if let audioPlayer = audioPlayer {
-            audioPlayer.play();
+            audioPlayer.play()
         }
     }
-    
+
 }

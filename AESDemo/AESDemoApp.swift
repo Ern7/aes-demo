@@ -10,7 +10,7 @@ import SwiftData
 
 @main
 struct AESDemoApp: App {
-    
+
     var body: some Scene {
         WindowGroup {
             HomeView()
